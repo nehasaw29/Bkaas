@@ -1,0 +1,195 @@
+
+<!-- BEGIN Panel Head -->
+<meta name="GENERATOR" content="CodeCharge Studio 5.1.1.18992">
+<!-- <link rel="stylesheet" type="text/css" href="Styles/Basic/Style_doctype.css"> -->
+<!-- <link rel="stylesheet" type="text/css" href="Styles/Basic/jquery-ui.css"> -->
+<title>Manage Income</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<!--script type="text/javascript" src="http://code.jquery.com/jquery-1.10.3.js">
+<link rel="stylesheet" type="text/css" href="Designs/bkaas/js/None/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="Designs/bkaas/js/None/ccs-jquery-ui-calendar.css"> </script><script language="JavaScript" type="text/javascript"
+</script-->
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-262290FB
+</script>
+<script src="{page:pathToRoot}ClientI18N.php?file=Globalize.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+//End Include Common JSFunctions
+
+//Include User Scripts @1-1E47B4BB
+</script>
+<link rel="stylesheet" type="text/css" href="{CCS_PathToMasterPage}jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="{CCS_PathToMasterPage}ccs-jquery-ui-calendar.css">
+{page:scriptIncludes}
+<script type="text/javascript">
+//End Include User Scripts
+
+//Common Script Start @1-8BFA436B
+jQuery(function ($) {
+    var features = { };
+    var actions = { };
+    var params = { };
+//End Common Script Start
+
+//Controls Selecting @1-6B82E98E
+    $('body').ccsBind(function() {
+        features["contentincometxn_dateJDateTimePicker1"] = $('*:ccsControl(content, income, txn_date)');
+    });
+//End Controls Selecting
+
+//Feature Parameters @1-DFE4E86B
+    params["contentincometxn_dateJDateTimePicker1"] = { 
+        dateFormat: "MM/dd/yyyy",
+        isWeekend: true
+    };
+//End Feature Parameters
+
+//Feature Init @1-18E7F87B
+    features["contentincometxn_dateJDateTimePicker1"].ccsBind(function() {
+        this.ccsDateTimePicker(params["contentincometxn_dateJDateTimePicker1"]);
+    });
+//End Feature Init
+
+//Plugin Calls @1-CD5A74E5
+    $('*:ccsControl(content, income, Button_Delete)').ccsBind(function() {
+        this.bind("click", function(){ $("body").data("disableValidation", true); });
+    });
+    $('*:ccsControl(content, income, cancel)').ccsBind(function() {
+        this.bind("click", function(){ $("body").data("disableValidation", true); });
+    });
+//End Plugin Calls
+
+//Common Script End @1-562554DE
+});
+//End Common Script End
+
+//End CCS script
+</script>
+<!-- END Panel Head -->
+<!-- BEGIN Panel content -->
+<div class="row">
+  <div class="col-lg-12">
+    <h3>Manage Income</h3>
+ 
+  </div>
+ 
+  <!-- /.col-lg-12 -->
+</div>
+<!-- BEGIN Record income -->
+<form id="income" method="post" name="{HTMLFormName}" action="{Action}">
+  <table class="table table-striped table-bordered table-hover" cellspacing="0" cellpadding="0">
+      {inc_success} 
+
+    <!-- BEGIN Error -->
+    <tr id="incomeErrorBlock" class="Error">
+      <td colspan="2">
+        <div class="alert alert-danger">
+          {Error} 
+        </div>
+ </td> 
+    </tr>
+ <!-- END Error -->
+    <tr style="DISPLAY: none" class="Controls">
+      <td class="th"><label for="incomeid_subscriber">Subscriber</label></td> 
+      <td>
+        <select id="incomeid_subscriber" name="{id_subscriber_Name}">
+          <option selected value="">Select Value</option>
+ {id_subscriber_Options} 
+        </select>
+ </td> 
+    </tr>
+ 
+    <tr style="DISPLAY: none" class="Controls">
+      <td class="th"><label for="incomeid_user">User</label></td> 
+      <td>
+        <select id="incomeid_user" name="{id_user_Name}">
+          <option selected value="">Select Value</option>
+ {id_user_Options} 
+        </select>
+ </td> 
+    </tr>
+    <tr class="Controls">
+      <td class="th"><label>Transaction Type</label></td>
+      <td> <select name="{upload_type_Name}" id="contentincomeSearchupload_type">
+                <option value="">Select Value</option>
+                  {upload_type_Options} 
+            </select> </td>
+       
+    </tr>
+ <tr class="Controls">
+  <td class="th"><label for="incometxn_date">Date * (mm/dd/yyyy)</label></td> 
+  <td>
+    <!-- BEGIN TextBox txn_date --><input type="text" id="incometxn_date" name="{txn_date_Name}" maxlength="100" value="{txn_date}" size="8"><!-- END TextBox txn_date --></td> 
+</tr>
+
+    <tr class="Controls">
+      <td class="th"><label for="incomeid_customer">Customer *</label></td> 
+      <td>
+        <select id="incomeid_customer" name="{id_customer_Name}">
+          <option selected value="">Select Value</option>
+ {id_customer_Options} 
+        </select>
+ </td> 
+    </tr>
+ 
+    <tr class="Controls">
+      <td class="th"><label for="incomeid_coa">Category *</label></td> 
+      <td>
+        <select id="incomeid_coa" name="{id_coa_Name}">
+          <option selected value="">Select Value</option>
+ {id_coa_Options} 
+        </select>
+ </td> 
+    </tr>    
+ 
+    <tr class="Controls">
+      <td class="th"><label for="incomercpt_mode">Receipt Mode *</label></td> 
+      <td>
+        <select id="incomercpt_mode" name="{rcpt_mode_Name}">
+          <!--option selected value="">Select Value</option-->
+ {rcpt_mode_Options} 
+        </select>
+ </td> 
+    </tr>
+    
+     <tr class="Controls">
+ 		<td class="th"><label>Funding Source *</label></td>
+ 		<td><select name="{funding_source_Name}" id="contentincomefunding_source">
+  <option value="">Select Value</option>
+ {funding_source_Options} 
+</select>
+</td>
+ 	</tr>
+ 
+    <tr class="Controls">
+      <td class="th"><label for="incomercpt_mode_det">Transaction Ref. No.</label></td> 
+      <td><input type="text" id="incomercpt_mode_det" name="{rcpt_mode_det_Name}" maxlength="120" value="{rcpt_mode_det}" size="50"></td> 
+    </tr>
+	 <tr class="Controls">
+	  <td class="th"><label for="incomeamount">Amount *</label></td> 
+	  <td><input type="text" id="incomeamount" name="{amount_Name}" maxlength="12" value="{amount}" size="12"></td> 
+	</tr>
+
+    <tr class="Controls">
+      <td class="th"><label for="incometxn_desc">Description</label></td> 
+      <td><input type="text" id="incometxn_desc" name="{txn_desc_Name}" maxlength="200" value="{txn_desc}" size="50"></td> 
+    </tr>
+ 
+    <tr class="Controls">
+      <td class="th"><label for="incomenotes">Notes *</label></td> 
+      <td><label for="contentincomenotes" style="display: none;">Notes</label> <textarea id="contentincomenotes" rows="3" name="{notes_Name}">{notes}</textarea></td> 
+    </tr>
+ 
+    <tr class="Bottom">
+      <td style="TEXT-ALIGN: right" colspan="2">
+        <!-- BEGIN Button Button_Insert --><input type="submit" id="incomeButton_Insert" class="Button" name="{Button_Name}" alt="Add" value="Add"><!-- END Button Button_Insert -->
+        <!-- BEGIN Button Button_Update --><input type="submit" id="incomeButton_Update" class="Button" name="{Button_Name}" alt="Submit" value="Submit"><!-- END Button Button_Update -->
+        <!-- BEGIN Button Button_Delete --><input type="submit" style="display:none;" id="incomeButton_Delete" class="Button" name="{Button_Name}" alt="Delete" value="Delete"><!-- END Button Button_Delete -->
+        <!-- BEGIN Button cancel --><input name="{Button_Name}" type="submit" value="Cancel" alt="Button1" id="contentincomecancel" class="Button"><!-- END Button cancel --></td> 
+    </tr>
+ 
+  </table>
+</form>
+<!-- END Record income --><br>
+<!-- END Panel content -->
